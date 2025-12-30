@@ -1,0 +1,107 @@
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #e5e7eb;
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+  
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #22c55e);
+  margin: 5px auto 0;
+  border-radius: 2px;
+}
+
+body {
+    padding: 10px;
+    margin: 20px;
+    /* background-color: #484444; */
+    background-color: #242525;
+    color: white;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.controls input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #1e1e1e;
+    color: white;
+
+}
+
+.controls input::placeholder {
+    color: #aaa;
+}
+
+.controls button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.controls button:hover {
+    background: #112764;
+}
+
+.controls .sort-btn {
+    background: #077b54;
+}
+
+.controls .sort-btn:hover {
+    background: #054631;
+}
+
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.stat-card {
+    padding: 12px;
+    border-radius: 10px;
+    background: #1e1e1e;
+    color: aliceblue;
+    text-align: center;
+
+
+}
+
+.stat-card h4 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.stat-card p {
+    margin: 8px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.stat-card.pass {
+    background: #22c55e;
+}
+
+.stat-card.fail {
+    background: #ef4444;
+}
