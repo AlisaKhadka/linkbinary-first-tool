@@ -51,8 +51,10 @@ const App = () => {
   return (
     <div>
       <h3 className="title">Student Gradebook</h3>
+      <div className="containerControls">
       <div className="controls">
-        <input
+     
+       <input
           placeholder="Student Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -73,8 +75,10 @@ const App = () => {
           >
             Sort: {sortHighToLow ? "High → Low" : "Low → High"}
           </button>
+          </div>
         </div>
       </div>
+
       {/* Student List  */}
       <StudentRow students={sortedStudents} updateScore={updateScore} />
 
@@ -86,16 +90,17 @@ const App = () => {
         </div>
 
         <div className="stat-card pass">
-          <h4>passing</h4>
+          <h4>Passing</h4>
           <p>{passing}</p>
         </div>
 
         <div className="stat-card fail">
-          <h4>failing</h4>
+          <h4>Failing</h4>
           <p>{failing}</p>
         </div>
       </div>
     </div>
+    
   );
 };
 

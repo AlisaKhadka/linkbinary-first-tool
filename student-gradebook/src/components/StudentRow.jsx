@@ -1,7 +1,7 @@
 import "../styles/StudentRow.css";
 const StudentRow = ({ students, updateScore }) => {
   return (
-    <div className="student-grid">
+    <div className="students-list">
       {students.map((student, index) => (
         <div key={index} className="student-card">
           <div>
