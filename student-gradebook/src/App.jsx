@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import StudentRow from "./components/StudentRow";
+import "./styles/App.css";
 
 const App = () => {
   // Load students from localStorage
@@ -49,43 +50,57 @@ const App = () => {
 
   return (
     <div>
-      <h3>Student List</h3>
+      <h3 className="title">Student Gradebook</h3>
+      <div className="containerControls">
+      <div className="controls">
+     
+       <input
+          placeholder="Student Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
-      <input
-        placeholder="Student Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        style={{ marginRight: "8px" }}
-      />
+        <input
+          placeholder="Score (0-100)"
+          value={score}
+          onChange={(e) => setScore(e.target.value)}
+        />
 
-      <input
-        placeholder="Score (0-100)"
-        value={score}
-        onChange={(e) => setScore(e.target.value)}
-        style={{ marginRight: "8px" }}
-      />
-
-      <button onClick={addStudent} style={{ marginLeft: "8px" }}>
-        Add Student
-      </button>
-
-      <hr />
+        <button onClick={addStudent}>Add Student</button>
+        {/* Sort Button */}
+        <div>
+          <button
+            className="sort-btn"
+            onClick={() => setSortHighToLow(!sortHighToLow)}
+          >
+            Sort: {sortHighToLow ? "High → Low" : "Low → High"}
+          </button>
+          </div>
+        </div>
+      </div>
 
       {/* Student List  */}
       <StudentRow students={sortedStudents} updateScore={updateScore} />
 
-      {/* Sort Button */}
-      <div style={{ margin: "10px 0" }}>
-        <button onClick={() => setSortHighToLow(!sortHighToLow)}>
-          Sort: {sortHighToLow ? "High → Low" : "Low → High"}
-        </button>
-      </div>
-
       {/* Statistics Bar */}
-      <div style={{ marginBottom: "10px" }}>
-        Total: {total} || Passing: {passing} || Failing: {failing}
+      <div className="stats">
+        <div className="stat-card">
+          <h4>Total</h4>
+          <p> {total}</p>
+        </div>
+
+        <div className="stat-card pass">
+          <h4>Passing</h4>
+          <p>{passing}</p>
+        </div>
+
+        <div className="stat-card fail">
+          <h4>Failing</h4>
+          <p>{failing}</p>
+        </div>
       </div>
     </div>
+    
   );
 };
 
